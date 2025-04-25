@@ -1,0 +1,65 @@
+### Register a new business user
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "business@example.com",
+  "password": "password123",
+  "firstName": "John",
+  "lastName": "Doe",
+  "role": "business"
+}
+
+### Register a new influencer user
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "influencer@example.com",
+  "password": "password123",
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "role": "influencer"
+}
+
+### Login as business
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "business@example.com",
+  "password": "password123"
+}
+
+### Login as influencer
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "influencer@example.com",
+  "password": "password123"
+}
+
+### Get profile (requires auth token)
+GET http://localhost:5000/api/auth/profile
+Authorization: Bearer YOUR_TOKEN_HERE
+
+### Update profile (requires auth token)
+PUT http://localhost:5000/api/auth/profile
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "firstName": "Updated",
+  "lastName": "Name"
+}
+
+### Change password (requires auth token)
+PUT http://localhost:5000/api/auth/change-password
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "currentPassword": "password123",
+  "newPassword": "newpassword123"
+}
